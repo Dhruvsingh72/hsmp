@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Indra Gandhi Hospital</h1>
+    </header>
+
+    <main>
+        <section id="userToggle">
+            <button onclick="showForm('patientModule')">Patient</button>
+            <button onclick="showForm('doctorModule')">Doctor</button>
+            <button onclick="showForm('adminModule')">Admin</button>
+        </section>
+        <section id="patientModule" class="form-section">
+            <h2>Patient</h2>
+            <form id="patientRegistration" onsubmit="registerPatient(event)">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" name="contact" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <div class="gender">
+                    <label>Gender:</label>
+                    <label for="male">Male</label>
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="female">Female</label>
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="other">Other</label>
+                    <input type="radio" id="other" name="gender" value="other" required>
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <section id="patientDashboard" class="form-section" style="display:none;">
+            <h2>Patient Dashboard</h2>
+            <form id="appointmentBooking" onsubmit="bookAppointment(event)">
+                <label for="doctorSelect">Select Doctor:</label>
+                <select id="doctorSelect" name="doctorSelect" required>
+                </select>
+
+                <label for="appointmentDate">Date:</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required>
+
+                <label for="appointmentTime">Time:</label>
+                <input type="time" id="appointmentTime" name="appointmentTime" required>
+
+                <button type="submit">Book Appointment</button>
+            </form>
+            <ul id="patientAppointmentsList">
+
+            </ul>
+        </section>
+
+        <section id="doctorModule" class="form-section" style="display:none;">
+            <h2>Doctor</h2>
+            <form id="doctorLogin" onsubmit="loginDoctor(event)">
+                <label for="doctorEmail">Email ID:</label>
+                <input type="email" id="doctorEmail" name="doctorEmail" required>
+
+                <label for="doctorPassword">Password:</label>
+                <input type="password" id="doctorPassword" name="doctorPassword" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <section id="doctorDashboard" class="form-section" style="display:none;">
+            <h2>Doctor Dashboard</h2>
+            <ul id="appointmentsList">
+
+            </ul>
+            <button onclick="logoutDoctor()">Logout</button>
+        </section>
+
+        <section id="adminModule" class="form-section" style="display:none;">
+            <h2>Admin</h2>
+            <form id="adminLogin" onsubmit="loginAdmin(event)">
+                <label for="adminUsername">Username:</label>
+                <input type="text" id="adminUsername" name="adminUsername" required>
+
+                <label for="adminPassword">Password:</label>
+                <input type="password" id="adminPassword" name="adminPassword" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <section id="adminDashboard" class="form-section" style="display:none;">
+            <h2>Admin Dashboard</h2>
+
+            <div>
+                <h3>View Patients</h3>
+                <ul id="patientList">
+
+                </ul>
+            </div>
+
+            <div>
+                <h3>View Doctors</h3>
+                <ul id="doctorList">
+
+                </ul>
+            </div>
+
+            <div>
+                <h3>View Appointments</h3>
+                <ul id="adminAppointmentsList">
+
+                </ul>
+            </div>
+
+            <div>
+                <h3>Add Doctor</h3>
+                <form id="addDoctorForm" onsubmit="addDoctor(event)">
+                    <label for="doctorName">Doctor's Name:</label>
+                    <input type="text" id="doctorName" name="doctorName" required>
+
+                    <label for="doctorEmail">Email ID:</label>
+                    <input type="email" id="doctorEmail" name="doctorEmail" required>
+
+                    <label for="doctorPassword">Password:</label>
+                    <input type="password" id="doctorPassword" name="doctorPassword" required>
+
+                    <button type="submit">Add Doctor</button>
+                </form>
+            </div>
+
+            <button onclick="logoutAdmin()">Logout</button>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
